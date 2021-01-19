@@ -1,23 +1,22 @@
 import urllib.request
 import json
-from datetime import date
+from datetime import date , timedelta
 
 today = date.today()
-year = today.strftime("%y")
+year = today.strftime("%Y")
 month = today.strftime("%m")
 day = today.strftime("%d")
 
 d = int(day)
-m = int(month)
-y = int(year)
 
 arr=[]                      #λιστα για τους νικητηριους αριθμους
 sumdata = [0] * 80          #λιστα για το ποσες φορες βρισκω εναν αριθμο
 totaldata = [0] * 80
 
-for x in range(1,d+1):
-
-        url = "https://api.opap.gr/draws/v3.0/1100/draw-date/2021-01-01/2021-01-01"
+for x in range(d):
+        thisday = today + timedelta(days=-x)
+        thisday = str(thisday)
+        url = "https://api.opap.gr/draws/v3.0/1100/draw-date/"+thisday+"/"+thisday
         r = urllib.request.urlopen(url)
         html = r.read()
         html = html.decode()

@@ -26,7 +26,6 @@ for x in range(d):
             i=1
             if i==1:
                 break
-        day = str(d-x)
 
 for i in range(d):
     for j in range(20):

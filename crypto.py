@@ -15,5 +15,5 @@ for keys in data:
     moneydict=(prices[keys])
     eur=(moneydict["EUR"])
     val=(data[keys])
-    print("Η αξία του",keys,"είναι: ")
-    print(int(val)*int(eur))
+    print("Η αξία του",keys,"είναι: ",int(val)*int(eur))
+    

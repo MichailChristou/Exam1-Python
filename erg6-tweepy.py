@@ -3,10 +3,10 @@ from tweepy.streaming import StreamListener
 import pandas as pd
 import re
 
-access_token = "1081576257614241793-2qcblON924ywtOHJe02I6fFrX7oSxw"
-access_token_secret = "GUecr8JN6vQBC1X6GTXSBpUVUh1Du9F7ctblhdKyHJ9R2"
-consumer_key = "8AJZTXk9rJLkt5eSJeGdlnG8Z"
-consumer_secret = "Yx5DO3wAAMq6lYvLZr8cgoFfz8eIME2rFzjGVRNV25k20g6Yqc"
+access_token = ""
+access_token_secret = ""
+consumer_key = ""
+consumer_secret = ""
 
 class TwitterClient():
     def __init__(self, twitter_user=None):

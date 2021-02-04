@@ -1,9 +1,10 @@
 import random
 
+#εκχώρηση απο τον χρήστη του όρου που θέλει να ελέγξει
 print("Δήλωσε τον ν-οστό όρο")
 y=int(input())
 
-#fibonacci alggorithm
+#αλγόριθμος fibonacci
 def fibonacci(x):
     i=1
     j=1
@@ -14,7 +15,7 @@ def fibonacci(x):
     return i
 
 p=fibonacci(y)
-#loop to chech a^p = a mod p
+#επανάληψη για τον έλεγχο του  a^p = a mod p
 times=0
 for g in range (19):
     a=random.randrange(1, p)
@@ -24,6 +25,7 @@ for g in range (19):
     if bool((ap == modul)) == False:
         times=times+1
 
+#έξοδος/εμφάνιση αποτελεσμάτων
 if times != 0:
     print("Ο ",y,"- οστός όρος είναι ο",p,"και δεν είναι πρώτος")
 else:

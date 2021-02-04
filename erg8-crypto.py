@@ -3,16 +3,17 @@ import urllib.request
 
 data=json.load(open('dictionary.json'))
 
-# loop for every crypto coin in dictionary
+#επανάληψη για το κάλεσμα των δεδομένων
 for keys in data:
-    #construction url to dict
+    #δημιουργία του url
     url="https://min-api.cryptocompare.com/data/pricemulti?fsyms="+keys+"&tsyms=EUR&e=CCCAGG"
     r=urllib.request.urlopen(url)
     html=r.read()
     html=html.decode()
     prices=json.loads(html)
-    #isolation of prices and values
+    #απομόνωση των prices και values
     moneydict=(prices[keys])
     eur=(moneydict["EUR"])
     val=(data[keys])
+    #έξοδος/εμφάνιση αποτελεσμάτων
     print("Η αξία του",keys,"είναι: ",int(val)*int(eur))

@@ -72,13 +72,16 @@ twitusername = input("Δωσε ενα ονομα χρηστη Twitter: ")
 
 tweets = api.user_timeline(screen_name=twitusername, count=10)
 
+#διαγραφή άχρηστων χαρακτήρων απο τα tweets
 df = pd.DataFrame(data=[tweet.text for tweet in tweets], columns=['Tweets'])
 df['cleanTweets'] = df["Tweets"].apply(lambda x: ''.join([" " if ord(i) < 32 or ord(i) > 126 else i for i in x]))
 df['cleanTweetsfromtrash'] = df['cleanTweets'].apply(lambda x: re.split('https:\/\/.*', str(x))[0])
 
+#μετατροπή του dataframe σε list με τις λέξεις ταξινομημένες
 newdata = df['cleanTweetsfromtrash'].tolist()
 lastnewdata = (convert(newdata))
 sortnewdata = sorted(lastnewdata, key=len)
 
+#έξοδος/εμφάνιση αποτελεσμάτων
 print("Οι μικροτερες λεξεις που χρησιμοποιηθηκαν στα τελευταια 10 tweets του χρηστη @"+twitusername+" ειναι: "+sortnewdata[0],sortnewdata[1],sortnewdata[2],sortnewdata[3],sortnewdata[4])
 print("Οι μεγαλυτερες λεξεις που χρησιμοποιηθηκαν στα τελευταια 10 tweets του χρηστη @"+twitusername+" ειναι: "+sortnewdata[-1],sortnewdata[-2],sortnewdata[-3],sortnewdata[-4],sortnewdata[-5])
